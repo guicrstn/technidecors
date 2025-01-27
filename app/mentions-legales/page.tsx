@@ -40,11 +40,12 @@ export default function MentionsLegales() {
           <p>Pour toute question ou demande d&apos;information, veuillez nous contacter à :</p>
           <p>Email : contact@gcinformatik.fr</p>
           <p>Téléphone : 06.07.41.31.11</p>
+          <p>Site WEB : https://gcinformatik.fr</p>
         </section>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">PRESTATAIRE D&apos;HÉBERGEMENT</h2>
-          <p>Le site www.technidecors.com est hébergé par OVH.</p>
+          <p>Le site www.technidecors.com est hébergé par HOSTINGER.</p>
         </section>
 
         <section className="mb-8">

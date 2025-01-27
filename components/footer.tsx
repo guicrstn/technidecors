@@ -10,7 +10,7 @@ export function Footer() {
           <div className="flex items-center gap-2 mb-4 md:mb-0">
             <span className="text-gray-600">Suivez-nous sur</span>
             <Link
-              href="https://linkedin.com/company/technidecors"
+              href="https://www.linkedin.com/company/techni-decors"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-amber-500 transition-colors"

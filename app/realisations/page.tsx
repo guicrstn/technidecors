@@ -150,7 +150,7 @@ const portfolioItems: PortfolioItem[] = [
     id: "19",
     title: "TAMPOGRAPHIE",
     subtitle: "COSMETIQUE",
-    image: "/images/chanel.jpeg",
+    image: "/images/bouchon3.jpg",
     categories: ["cosmetique", "bouchon"],
   },
   {
