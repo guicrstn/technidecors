@@ -183,7 +183,7 @@ export default function SavoirFaire() {
             {
               title: "Tampographie",
               description:
-                "Notre maîtrise de la tampographie nous permet d&apos;imprimer avec précision sur des surfaces complexes et des objets en 3D.",
+                "Notre maîtrise de la tampographie nous permet d'imprimer avec précision sur des surfaces complexes et des objets en 3D.",
               features: [
                 "Impression sur forme complexe",
                 "Petites séries",
