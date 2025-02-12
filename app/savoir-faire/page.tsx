@@ -187,7 +187,7 @@ export default function SavoirFaire() {
               features: [
                 "Impression sur forme complexe",
                 "Petites séries",
-                "Résistance à l&apos;usure",
+                "Résistance à l'usure",
                 "Multi-couleurs",
                 "Haute qualité",
               ],
