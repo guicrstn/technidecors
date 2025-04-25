@@ -75,10 +75,12 @@ function NavLinks({ mobile = false }: { mobile?: boolean }) {
       <Link href="/environnement" className={linkClass}>
         Environnement
       </Link>
+      <Link href="/reseau" className={linkClass}>
+        Réseau
+      </Link>
       <Link href="/contact" className={contactClass}>
         Contact
       </Link>
     </div>
   )
 }
-
