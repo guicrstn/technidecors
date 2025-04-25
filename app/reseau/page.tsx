@@ -40,7 +40,7 @@ export default function Reseau() {
               {/* AEPV */}
               <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center">
                 <div className="relative w-full h-48 mb-6">
-                  <Image src="/images/aepv-logo.png" alt="Logo AEPV" fill className="object-contain" />
+                  <Image src="/images/AEPV_Logo.png" alt="Logo AEPV" fill className="object-contain" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">AEPV</h2>
                 <p className="text-gray-700 mb-6 text-center">
@@ -58,7 +58,7 @@ export default function Reseau() {
               {/* ORIGIN'AIN */}
               <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center">
                 <div className="relative w-full h-48 mb-6">
-                  <Image src="/images/originain-logo.png" alt="Logo ORIGIN'AIN" fill className="object-contain" />
+                  <Image src="/images/Originain.png" alt="Logo ORIGIN'AIN" fill className="object-contain" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">ORIGIN&apos;AIN</h2>
                 <p className="text-gray-700 mb-6 text-center">
