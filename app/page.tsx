@@ -8,12 +8,11 @@ import { Button } from "@/components/ui/button"
 import { ContactForm } from "@/components/contact-form"
 import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, Users, Cog, Target, Award, Zap, Droplet, Layers, Printer, ChevronDown } from "lucide-react"
+import { ArrowRight, Users, Cog, Target, Award, Zap, Droplet, Layers, Printer, ChevronDown, Bell } from "lucide-react"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Breadcrumb } from "@/components/breadcrumb"
 import { useRouter } from "next/navigation"
 import type { LucideIcon } from "lucide-react"
-import { NotificationBadge } from "@/components/notification-badge"
 import Link from "next/link"
 
 interface ExpertiseCardProps {
@@ -76,6 +75,55 @@ function AnimatedNumber({ end, duration = 2000, label }: { end: number; duration
       <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-amber-400 mb-2">{count}</div>
       <div className="text-sm md:text-base lg:text-lg text-gray-600">{label}</div>
     </div>
+  )
+}
+
+// Composant de notification intégré directement dans la page
+function NotificationBadge({ message, targetId }: { message: string; targetId: string }) {
+  const [isVisible, setIsVisible] = useState(true)
+  const [hasBeenClicked, setHasBeenClicked] = useState(false)
+
+  // Vérifier si l'utilisateur a déjà cliqué sur la notification
+  useEffect(() => {
+    const hasClicked = localStorage.getItem(`notification-${targetId}`)
+    if (hasClicked) {
+      setHasBeenClicked(true)
+      setIsVisible(false)
+    }
+  }, [targetId])
+
+  const handleClick = () => {
+    // Enregistrer que l'utilisateur a cliqué
+    localStorage.setItem(`notification-${targetId}`, "true")
+    setHasBeenClicked(true)
+    setIsVisible(false)
+
+    // Faire défiler jusqu'à la section cible
+    const targetElement = document.getElementById(targetId)
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
+
+  if (hasBeenClicked) return null
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      className="fixed bottom-4 right-4 z-50"
+    >
+      <motion.div
+        className="bg-amber-400 text-white px-4 py-3 rounded-lg shadow-lg cursor-pointer flex items-center gap-2 max-w-xs"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={handleClick}
+      >
+        <Bell className="h-5 w-5" />
+        <span>{message}</span>
+      </motion.div>
+    </motion.div>
   )
 }
 
@@ -202,7 +250,7 @@ export default function Home() {
               <AnimatedNumber end={4} label="Machines d&apos;assemblage" />
               <AnimatedNumber end={14} label="Machines de marquage &agrave; chaud" />
               <AnimatedNumber end={20} label="Collaborateurs" />
-              <AnimatedNumber end={1000000} label="Pi&egrave;ces&frasl;an" />
+              <AnimatedNumber end={20} label="Millions &frasl; Pi&egrave;ces &frasl; an" />
             </div>
           </div>
         </div>
@@ -307,7 +355,7 @@ export default function Home() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative w-full h-48 mb-6">
-                  <Image src="/images/AEPV_Logo.png" alt="Logo AEPV" fill className="object-contain" />
+                  <Image src="/images/aepv-logo.png" alt="Logo AEPV" fill className="object-contain" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">AEPV</h3>
                 <p className="text-gray-700 mb-6">
@@ -330,7 +378,7 @@ export default function Home() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative w-full h-48 mb-6">
-                  <Image src="/images/Originain.png" alt="Logo ORIGIN'AIN" fill className="object-contain" />
+                  <Image src="/images/originain-logo.png" alt="Logo ORIGIN'AIN" fill className="object-contain" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">ORIGIN&apos;AIN</h3>
                 <p className="text-gray-700 mb-6">
