@@ -184,7 +184,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
         <div className="relative z-20 text-center text-white px-4 flex flex-col items-center mt-20">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 max-w-4xl">
-            &quot;Acteur industriel Fran&ccedil;ais du marquage et de l&apos;assemblage industriel&quot;
+            Acteur industriel Fran&ccedil;ais du marquage et de l&apos;assemblage industriel;
           </h1>
           <Button
             className="bg-amber-400 text-white hover:bg-amber-500 text-lg px-8 py-3 mb-12"
