@@ -81,4 +81,3 @@ function NavLinks({ mobile = false }: { mobile?: boolean }) {
     </div>
   )
 }
-

@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { Navbar } from "@/components/navbar"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -10,7 +12,9 @@ import { ArrowRight, Users, Cog, Target, Award, Zap, Droplet, Layers, Printer, C
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Breadcrumb } from "@/components/breadcrumb"
 import { useRouter } from "next/navigation"
-import { TypeIcon as type, type LucideIcon } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+import { NotificationBadge } from "@/components/notification-badge"
+import Link from "next/link"
 
 interface ExpertiseCardProps {
   icon: LucideIcon
@@ -81,6 +85,7 @@ export default function Home() {
   const [isVisible, setIsVisible] = useState(false)
   const historyRef = useRef<HTMLElement>(null)
   const expertiseRef = useRef<HTMLElement>(null)
+  const reseauxRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -117,6 +122,8 @@ export default function Home() {
     <main className="min-h-screen bg-gray-50">
       <Navbar />
       <Breadcrumb />
+      <NotificationBadge message="Découvrez nos réseaux professionnels !" targetId="nos-reseaux" />
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <Image
@@ -129,7 +136,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
         <div className="relative z-20 text-center text-white px-4 flex flex-col items-center mt-20">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 max-w-4xl">
-            Acteur industriel Fran&ccedil;ais du marquage et de l&apos;assemblage industriel
+            &quot;Acteur industriel Fran&ccedil;ais du marquage et de l&apos;assemblage industriel&quot;
           </h1>
           <Button
             className="bg-amber-400 text-white hover:bg-amber-500 text-lg px-8 py-3 mb-12"
@@ -155,7 +162,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-8 text-gray-800">Notre Histoire</h2>
             <p className="text-xl text-gray-600 mb-8">
-              Fond&eacute;e il y a plus de 24 ans, Techni D&eacute;cors s&apos;est impos&eacute;e comme
+              Fond&eacute;e il y a plus de trois d&eacute;cennies, Techni D&eacute;cors s&apos;est impos&eacute;e comme
               un leader incontest&eacute; dans le domaine du marquage industriel et de l&apos;impression de haute
               qualit&eacute;. Notre parcours est marqu&eacute; par une constante &eacute;volution technologique et un
               engagement in&eacute;branlable envers l&apos;excellence.
@@ -195,7 +202,7 @@ export default function Home() {
               <AnimatedNumber end={4} label="Machines d&apos;assemblage" />
               <AnimatedNumber end={14} label="Machines de marquage &agrave; chaud" />
               <AnimatedNumber end={20} label="Collaborateurs" />
-              <AnimatedNumber end={20} label="Millions &frasl; Pi&egrave;ces &frasl; an" />
+              <AnimatedNumber end={1000000} label="Pi&egrave;ces&frasl;an" />
             </div>
           </div>
         </div>
@@ -215,7 +222,7 @@ export default function Home() {
                 <div className="border-t-2 border-white w-full"></div>
               </motion.div>
             </div>
-            <h2 className="text-3xl font-bold mb-8">&quot;Notre Signature&quot;</h2>
+            <h2 className="text-3xl font-bold mb-8">Notre Signature</h2>
             <p className="text-xl leading-relaxed">
               Dans la complexit&eacute; des plus belles pi&egrave;ces, Techni Decors cherche, trouve et met en
               &oelig;uvre une solution pour valoriser les d&eacute;cors de vos produits &agrave; la hauteur des
@@ -263,9 +270,81 @@ export default function Home() {
               />
               <ExpertiseCard
                 icon={Target}
-                title="Gravure Laser"
-                description="Bientôt disponible."
+                title="Innovation continue"
+                description="Recherche et d&eacute;veloppement constants pour rester &agrave; la pointe de l&apos;industrie."
               />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Nos Réseaux Section - NOUVELLE SECTION */}
+      <section id="nos-reseaux" className="py-20 bg-gray-50" ref={reseauxRef}>
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative mb-12 text-center">
+              <h2 className="text-4xl font-bold mb-6 text-gray-800">Nos Réseaux</h2>
+              <div className="absolute -top-2 right-1/4 bg-amber-400 text-white text-xs px-2 py-1 rounded-full animate-pulse">
+                Nouveau
+              </div>
+              <p className="text-xl text-gray-600 mb-12">
+                Techni Décors est fier de faire partie de réseaux professionnels qui favorisent l&apos;innovation, le
+                partage d&apos;expertise et le développement économique local.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* AEPV */}
+              <motion.div
+                className="bg-white p-8 rounded-lg shadow-lg"
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative w-full h-48 mb-6">
+                  <Image src="/images/aepv-logo.png" alt="Logo AEPV" fill className="object-contain" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">AEPV</h3>
+                <p className="text-gray-700 mb-6">
+                  L&apos;Association des Entreprises de la Plastics Vallée (AEPV) regroupe les entreprises industrielles
+                  et de services de la région d&apos;Oyonnax, connue comme la &quot;Plastics Vallée&quot;. Ce réseau
+                  favorise les échanges, l&apos;innovation et le développement économique local.
+                </p>
+                <Link href="https://www.aepv.asso.fr/" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-amber-400 text-white hover:bg-amber-500">
+                    Visiter le site
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </motion.div>
+
+              {/* ORIGIN'AIN */}
+              <motion.div
+                className="bg-white p-8 rounded-lg shadow-lg"
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative w-full h-48 mb-6">
+                  <Image src="/images/originain-logo.png" alt="Logo ORIGIN'AIN" fill className="object-contain" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">ORIGIN&apos;AIN</h3>
+                <p className="text-gray-700 mb-6">
+                  ORIGIN&apos;AIN est une marque collective qui valorise les savoir-faire et l&apos;excellence des
+                  entreprises du département de l&apos;Ain. Ce réseau promeut les produits et services locaux, mettant
+                  en avant la qualité et l&apos;innovation des entreprises du territoire.
+                </p>
+                <Link href="https://www.originain.fr/" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-amber-400 text-white hover:bg-amber-500">
+                    Visiter le site
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -303,4 +382,3 @@ export default function Home() {
     </main>
   )
 }
-
