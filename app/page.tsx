@@ -355,7 +355,7 @@ export default function Home() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative w-full h-48 mb-6">
-                  <Image src="/images/aepv-logo.png" alt="Logo AEPV" fill className="object-contain" />
+                  <Image src="/images/AEPV_Logo.png" alt="Logo AEPV" fill className="object-contain" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">AEPV</h3>
                 <p className="text-gray-700 mb-6">
@@ -378,7 +378,7 @@ export default function Home() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="relative w-full h-48 mb-6">
-                  <Image src="/images/originain-logo.png" alt="Logo ORIGIN'AIN" fill className="object-contain" />
+                  <Image src="/images/Originain.png" alt="Logo ORIGIN'AIN" fill className="object-contain" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">ORIGIN&apos;AIN</h3>
                 <p className="text-gray-700 mb-6">
