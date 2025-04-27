@@ -9,7 +9,7 @@ const routes = {
   "/presentation": "PRÉSENTATION",
   "/savoir-faire": "SAVOIR-FAIRE",
   "/contact": "CONTACT",
-  "/reseau": "RÉSEAU",
+  "/environnement": "ENVIRONNEMENT",
 }
 
 type Routes = typeof routes
